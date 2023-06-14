@@ -10294,3 +10294,17 @@ html {
     width: 70%;
   }
 }
+
+
+.text-transform{
+  display: -webkit-box !important;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transform: translateY(2%);
+  transition: transform 8.8s ease-in;
+}
+
+.text-transform:hover{
+  display: block !important;
+}
