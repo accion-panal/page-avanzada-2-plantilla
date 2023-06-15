@@ -152,19 +152,28 @@ export default async function apiCallMap() {
     let splide = new Splide(".splide", {
     type    : 'loop',
     perPage : 3,
+    perMove: 1,
     // autoWidth: true,
     drag:true,
     breakpoints:{
         1399:{perPage:2},
         991:{perPage:1}
     }});
+
+    splide.on( 'pagination:mounted', function ( data ) {
+        // You can add your class to the UL element
+        data.list.classList.add( 'display-hidden' );
+      } );
     splide.mount();
 }
+let containerMap = document.getElementById('div-map-section');
+if (containerMap !== null) {
+    document.addEventListener("DOMContentLoaded", function () {
+        let splide = new Splide(".splide");
+        // let splideList = new Splide(".splide");
+        // splideList.mount();
+        splide.mount();
+    });
+}
 
-document.addEventListener("DOMContentLoaded", function () {
-	let splide = new Splide(".splide");
-	// let splideList = new Splide(".splide");
-	// splideList.mount();
-	splide.mount();
-});
 
