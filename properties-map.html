@@ -77,27 +77,27 @@
 		<div class="row justify-content-center align-items-center">
 			<div class="col-lg-12  ">
 
-				<form action="#" class="narrow-w form-search d-flex align-items-stretch mb-3 formfilter" data-aos="fade-up" data-aos-delay="200">
+				<div id="searchFormAdvanced" class="narrow-w form-search d-flex align-items-stretch mb-3 formfilter" data-aos="fade-up" data-aos-delay="200">
 					
 					<div class="row p-5 pt-5 cuadro-bl mt-4">
-						<h3 style="font-weight: bold;">PROPIEDADES</h3>
+						<h3 style="font-weight: bold;">Busqueda avanzada</h3>
 						<div class="row">
-							<div class="col-9">
-								<div class="row  mb-4">
+							<div class="col-12">
+								<div class="row  mb-4" id="operationTypeRadio">
 									<div class="col-4">
-										<input class="form-check-input" style="border: 1px solid black;" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+										<input class="form-check-input" style="border: 1px solid black;" type="radio" name="flexRadioDefault" id="flexRadioDefault2"  id="operationType-arriendo" value="arriendo">
 										<label class="form-check-label" for="flexRadioDefault2">
 										Arriendo
 										</label>
 									</div>
-									<div class="col-4">
-										<input class="form-check-input" style="border: 1px solid black;" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+									<div class="col-5">
+										<input class="form-check-input" style="border: 1px solid black;" type="radio" name="flexRadioDefault" id="flexRadioDefault3"  id="operationType-arriendo-temp" value="arriendo_temporal">
 										<label class="form-check-label" for="flexRadioDefault3">
-										Canje
+										Arriendo temporal
 										</label>
 									</div>
-									<div class="col-4">
-										<input class="form-check-input " style="border: 1px solid black;" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+									<div class="col-3">
+										<input class="form-check-input " style="border: 1px solid black;" type="radio" name="flexRadioDefault" id="flexRadioDefault1" id="operationType-venta" value="venta">
 										<label class="form-check-label " for="flexRadioDefault1">
 										Venta
 										</label>
@@ -111,33 +111,27 @@
 	
 
 						<div class="col-lg-12 text-center p-1">
-							<select class="form-select" style="border-radius: 15px;" aria-label="Default select example">
-								<option selected>Tipo inmueble</option>
+							<select id="typeOfProperty" class="form-select" style="border-radius: 15px;" aria-label="Default select example">
+								<option value="" selected>Tipo inmueble</option>
 								<option value="1">Casa</option>
 								<option value="2">Terreno</option>
 								<option value="3">Departamento</option>
 							</select>
 						</div>
 						<div class="col-lg-6 text-center p-1">
-							<select class="form-select" style="border-radius: 15px;" aria-label="Default select example">
-								<option selected>Comuna</option>
-								<option value="1">SI</option>
-								<option value="2">NO</option>
-
+							<select id="communeTextId" class="form-select" style="border-radius: 15px;" aria-label="Default select example">
+								<option value="" selected>Comuna</option>	
 							</select>
 						</div>
 						<div class="col-lg-6 text-center p-1">
-							<select class="form-select" style="border-radius: 15px;" aria-label="Default select example">
-								<option selected>Region</option>
-								<option value="1">RM</option>
-								<option value="2">5ta</option>
-								<option value="3">6ta</option>
+							<select id="regionTextId" class="form-select" style="border-radius: 15px;" aria-label="Default select example">
+								<option value="0" selected>Region</option>
 							</select>
 						</div>
 
 						<div class="col-lg-6 text-center p-1">
-							<select class="form-select" style="border-radius: 15px;" aria-label="Default select example">
-								<option selected>Habitaciones</option>
+							<select id="bedrooms" class="form-select" style="border-radius: 15px;" aria-label="Default select example">
+								<option value="" selected>Habitaciones</option>
 								<option value="1">1</option>
 								<option value="2">2</option>
 								<option value="3">3</option>
@@ -145,8 +139,8 @@
 							</select>
 						</div>
 						<div class="col-lg-6 text-center p-1">
-							<select class="form-select" style="border-radius: 15px;" aria-label="Default select example">
-								<option selected>Baños</option>
+							<select id="bathrooms" class="form-select" style="border-radius: 15px;" aria-label="Default select example">
+								<option value="" selected>Baños</option>
 								<option value="1">1</option>
 								<option value="2">2</option>
 								<option value="3">3</option>
@@ -156,11 +150,12 @@
 
 
 						<div class="col-lg-6 text-center p-1">
-							<select class="form-select" style="border-radius: 15px;" aria-label="Default select example">
-								<option selected>Adicional</option>
-								<option value="1">One</option>
-								<option value="2">Two</option>
-								<option value="3">Three</option>
+							<select id="covered_parking_lots" class="form-select" style="border-radius: 15px;" aria-label="Default select example">
+								<option value="" selected>Estacionamientos</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
 							</select>
 						</div>
 
@@ -178,24 +173,24 @@
 						<div class="col-lg-12 p-1  ">
 							<div class="row ">
 								<div class="col-6 " style="font-size: 15px;">
-									<label for="" class=" p-2" style="border: 1px solid black; border-radius: 25px;" >$ PRECIO</label>
+									<label for="" class="p-2" style="color: #000000;" >PRECIO: </label>
 									<div class="form-check form-check-inline ">
-										<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+										<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="UF">
 										<label class="form-check-label" for="inlineRadio1">UF</label>
 									</div>
 									<div class="form-check form-check-inline ">
-										<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+										<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="CLP">
 										<label class="form-check-label" for="inlineRadio2">CLP</label>
 									</div>
 								</div>
 								<div class="col-6 ">
 									<div class="row">
 										<div class="col-6   p-1">
-											<input type="number" class="text-center" style="width: 100px; border-radius: 15px; " min="0" pattern="^[0-9]+" name="desde" id="id_desde" placeholder="Desde">
+											<input type="number" class="text-center" style="width: 100px; border-radius: 15px; " min="0" pattern="^[0-9]+" name="desde" id="min_price" placeholder="Desde">
 		
 										</div>
 										<div class="col-6  p-1">
-											<input type="number" class="text-center" style="width: 100px; border-radius: 15px; " min="0" pattern="^[0-9]+" name="hasta" id="id_hasta" placeholder="Hasta">
+											<input type="number" class="text-center" style="width: 100px; border-radius: 15px; " min="0" pattern="^[0-9]+" name="hasta" id="max_price" placeholder="Hasta">
 		
 										</div>
 									</div>
@@ -206,7 +201,7 @@
 
 
 						<div class="col-lg-12 p-1 text-center">
-							<button type="submit" class="btn btn-primary" style="width: 100%;padding-top: 7px;padding-bottom: 7px;margin-top: 20px;">Buscar</button>
+							<button id="buscar2" type="submit" class="btn btn-primary" style="width: 100%;padding-top: 7px;padding-bottom: 7px;margin-top: 20px;">Buscar</button>
 						</div>
 
 					</div>
@@ -214,7 +209,7 @@
 
 
 
-				</form>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -241,7 +236,7 @@
 		
 		<div class="row align-items-center py-1 text-start  " style="padding: 0 3rem 2rem 3rem ;">
 			<div class="col-lg-4 " style="padding-top: 10px ;padding-left: 0;" id="total-prop">
-				131 Propiedades encontradas
+				Buscando Propiedades...
 			</div>
 			<div class="col-lg-6  " style="padding-top: 10px ;padding-bottom: 7px;">
 				<div class="row text-end" style="padding-top: 10px; padding-right: 10px; padding-left: 0px;">
@@ -420,6 +415,8 @@
 
 	<script type="module" src="js/prop_Map.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script type="module" src="js/utils/getSelects.js"></script>
+	<script type="module" src="js/utils/filterOnSearch.js"></script>
 	<script type="module" src="js/utils/pagination.js"></script>
   </body>
   </html>
