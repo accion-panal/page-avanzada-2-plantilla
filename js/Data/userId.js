@@ -44,6 +44,10 @@ export const servicesInformation = {
 }
 
 export const ContactInformation = {
+    map:[{id:1, 
+        "LngLat": "{Lng: -70.56394774481696, Lat: -33.40761357832481 }",
+        title:'RentalProp Spa Apoquindo 6410 Of.605, Las condes'
+    }],
     information: [{
         id:1,
         icon:'<i class="fa fa-map-marker text-center"  aria-hidden="true"></i>',

@@ -23,6 +23,10 @@
 	
 	<script src="https://kit.fontawesome.com/5694cf4c5b.js" crossorigin="anonymous"></script>
 	<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+
+	<link href="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css" rel="stylesheet">
+	<script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
 
 	<title>Panal 2</title>
 	</head>
@@ -236,26 +240,25 @@
 
 		
 		<div class="row align-items-center py-1 text-start  " style="padding: 0 3rem 2rem 3rem ;">
-			<div class="col-lg-4 " style="padding-top: 10px ;padding-left: 0;">
+			<div class="col-lg-4 " style="padding-top: 10px ;padding-left: 0;" id="total-prop">
 				131 Propiedades encontradas
 			</div>
 			<div class="col-lg-6  " style="padding-top: 10px ;padding-bottom: 7px;">
 				<div class="row text-end" style="padding-top: 10px; padding-right: 10px; padding-left: 0px;">
 					<div class="col-7 text-end">Orden por:</div>
 					<div class="col-5 text-end">
-						<select class="form-select text-end" aria-label="Default select example" style="width: 100%!important;">
-							<option selected>Precio mayor a menor</option>
-							<option value="1">Precio menor a mayor</option>
-	
-			
+						<select id="FilterPrice" class="form-select text-end" aria-label="Default select example" style="margin-left: 50px;width: 100%!important;">
+							<option disabled selected>Seleccione una opción</option>
+							<option value="MenorMayor">Precio menor a mayor</option>
+							<option value="MayorMenor">Precio mayor a menor</option>
 						</select>
 					</div>
 				</div>
 			</div>
 			<div class="col-lg-2 grilla-custom" style="padding-top: 10px ;">
 				<div class="custom-pagination">
-					<a href="properties.html"class="active"><img src="images/grilla-icono.svg" alt=""></a>
-					<a href="properties-map.html" ><img src="images/mapa-icono.svg" alt=""></a>
+					<a href="properties.html"><img src="images/grilla-icono.svg" alt=""></a>
+					<a href="properties-map.html" class="active" ><img src="images/mapa-icono.svg" alt=""></a>
 	
 				</div>
 			</div>
@@ -264,370 +267,15 @@
 
 
 
-		<div class="row " >
-
-			<iframe class="mapgoogle2" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.5958879815885!2d-70.56693998897713!3d-33.40770567329557!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cfc2ce4e1739%3A0x8f2bfdc565cf902f!2sAv.%20Apoquindo%206410%2C%207550000%20Las%20Condes%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1sen!2scl!4v1668719016513!5m2!1sen!2scl" 
-			style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-
+		<div class="row " id="div-map-section">
+			<div id="map"></div> 
 		</div>
 
 		
 		<div class="row " style="padding-left: 5%;padding-right: 5%; padding-top: 30px;">
 			<div class="col-12">
-				<div class="property-slider-wrap">
+				<!-- <div class="property-slider-wrap">
 					<div class="property-slider text-center">
-
-						<div class="property-item">
-
-							<a href="property-single.html" class="img">
-								<img src="images/img_1.jpg.png" alt="Image" class="img-fluid">
-							</a>
-
-							<div class="property-content">
-								<p style="margin-bottom: 0;"> <i class="fa fa-map-marker fa-lg"></i> Puerto Montt, Lorem insup</p>
-								<span class="city d-block mb-3" style="font-weight: bold;font-size: 30px;">TERRAMAR</span>
-
-								<div class="" style="border-top: 2px solid gray;">
-									
-									<div class="row p-3 ">
-										<div class="col-5 hr-l">
-											<div class="row ">
-												<div class="col-12">Dormitorios</div>
-												<div class="col-12">3</div>
-
-											</div>
-												
-										</div>
-										<div class="col-3 hr-l">
-											<div class="row ">
-												<div class="col-12">UF</div>
-												<div class="col-12">3600</div>
-
-											</div>
-										</div>
-										<div class="col-4">
-											<div class="row">
-												<div class="col-12">M2</div>
-												<div class="col-12">77</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div> <!-- .item -->
-
-						<div class="property-item">
-
-							<a href="property-single.html" class="img">
-								<img src="images/img_2.jpg.png" alt="Image" class="img-fluid">
-							</a>
-
-							<div class="property-content">
-								<p style="margin-bottom: 0;"> <i class="fa fa-map-marker fa-lg"></i> Puerto Montt, Lorem insup</p>
-								<span class="city d-block mb-3" style="font-weight: bold;font-size: 30px;">TERRAMAR</span>
-
-								<div class="" style="border-top: 2px solid gray;">
-									
-									<div class="row p-3 ">
-										<div class="col-5 hr-l">
-											<div class="row ">
-												<div class="col-12">Dormitorios</div>
-												<div class="col-12">3</div>
-
-											</div>
-												
-										</div>
-										<div class="col-3 hr-l">
-											<div class="row ">
-												<div class="col-12">UF</div>
-												<div class="col-12">3600</div>
-
-											</div>
-										</div>
-										<div class="col-4">
-											<div class="row">
-												<div class="col-12">M2</div>
-												<div class="col-12">77</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div> <!-- .item -->
-
-						<div class="property-item">
-
-							<a href="property-single.html" class="img">
-								<img src="images/img_3.jpg.png" alt="Image" class="img-fluid">
-							</a>
-
-							<div class="property-content">
-								<p style="margin-bottom: 0;"> <i class="fa fa-map-marker fa-lg"></i> Puerto Montt, Lorem insup</p>
-								<span class="city d-block mb-3" style="font-weight: bold;font-size: 30px;">TERRAMAR</span>
-
-								<div class="" style="border-top: 2px solid gray;">
-									
-									<div class="row p-3 ">
-										<div class="col-5 hr-l">
-											<div class="row ">
-												<div class="col-12">Dormitorios</div>
-												<div class="col-12">3</div>
-
-											</div>
-												
-										</div>
-										<div class="col-3 hr-l">
-											<div class="row ">
-												<div class="col-12">UF</div>
-												<div class="col-12">3600</div>
-
-											</div>
-										</div>
-										<div class="col-4">
-											<div class="row">
-												<div class="col-12">M2</div>
-												<div class="col-12">77</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div> <!-- .item -->
-
-						<div class="property-item">
-
-							<a href="property-single.html" class="img">
-								<img src="images/img_4.jpg.png" alt="Image" class="img-fluid">
-							</a>
-
-							<div class="property-content">
-								<p style="margin-bottom: 0;"> <i class="fa fa-map-marker fa-lg"></i> Puerto Montt, Lorem insup</p>
-								<span class="city d-block mb-3" style="font-weight: bold;font-size: 30px;">TERRAMAR</span>
-
-								<div class="" style="border-top: 2px solid gray;">
-									
-									<div class="row p-3 ">
-										<div class="col-5 hr-l">
-											<div class="row ">
-												<div class="col-12">Dormitorios</div>
-												<div class="col-12">3</div>
-
-											</div>
-												
-										</div>
-										<div class="col-3 hr-l">
-											<div class="row ">
-												<div class="col-12">UF</div>
-												<div class="col-12">3600</div>
-
-											</div>
-										</div>
-										<div class="col-4">
-											<div class="row">
-												<div class="col-12">M2</div>
-												<div class="col-12">77</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div> <!-- .item -->
-
-						<div class="property-item">
-
-							<a href="property-single.html" class="img">
-								<img src="images/img_5.jpg.png" alt="Image" class="img-fluid">
-							</a>
-
-							<div class="property-content">
-								<p style="margin-bottom: 0;"> <i class="fa fa-map-marker fa-lg"></i> Puerto Montt, Lorem insup</p>
-								<span class="city d-block mb-3" style="font-weight: bold;font-size: 30px;">TERRAMAR</span>
-
-								<div class="" style="border-top: 2px solid gray;">
-									
-									<div class="row p-3 ">
-										<div class="col-5 hr-l">
-											<div class="row ">
-												<div class="col-12">Dormitorios</div>
-												<div class="col-12">3</div>
-
-											</div>
-												
-										</div>
-										<div class="col-3 hr-l">
-											<div class="row ">
-												<div class="col-12">UF</div>
-												<div class="col-12">3600</div>
-
-											</div>
-										</div>
-										<div class="col-4">
-											<div class="row">
-												<div class="col-12">M2</div>
-												<div class="col-12">77</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div> <!-- .item -->
-
-						<div class="property-item">
-
-							<a href="property-single.html" class="img">
-								<img src="images/img_6.jpg.png" alt="Image" class="img-fluid">
-							</a>
-
-							<div class="property-content">
-								<p style="margin-bottom: 0;"> <i class="fa fa-map-marker fa-lg"></i> Puerto Montt, Lorem insup</p>
-								<span class="city d-block mb-3" style="font-weight: bold;font-size: 30px;">TERRAMAR</span>
-
-								<div class="" style="border-top: 2px solid gray;">
-									
-									<div class="row p-3 ">
-										<div class="col-5 hr-l">
-											<div class="row ">
-												<div class="col-12">Dormitorios</div>
-												<div class="col-12">3</div>
-
-											</div>
-												
-										</div>
-										<div class="col-3 hr-l">
-											<div class="row ">
-												<div class="col-12">UF</div>
-												<div class="col-12">3600</div>
-
-											</div>
-										</div>
-										<div class="col-4">
-											<div class="row">
-												<div class="col-12">M2</div>
-												<div class="col-12">77</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div> <!-- .item -->
-
-						<div class="property-item">
-
-							<a href="property-single.html" class="img">
-								<img src="images/img_7.jpg.png" alt="Image" class="img-fluid">
-							</a>
-
-							<div class="property-content">
-								<p style="margin-bottom: 0;"> <i class="fa fa-map-marker fa-lg"></i> Puerto Montt, Lorem insup</p>
-								<span class="city d-block mb-3" style="font-weight: bold;font-size: 30px;">TERRAMAR</span>
-
-								<div class="" style="border-top: 2px solid gray;">
-									
-									<div class="row p-3 ">
-										<div class="col-5 hr-l">
-											<div class="row ">
-												<div class="col-12">Dormitorios</div>
-												<div class="col-12">3</div>
-
-											</div>
-												
-										</div>
-										<div class="col-3 hr-l">
-											<div class="row ">
-												<div class="col-12">UF</div>
-												<div class="col-12">3600</div>
-
-											</div>
-										</div>
-										<div class="col-4">
-											<div class="row">
-												<div class="col-12">M2</div>
-												<div class="col-12">77</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div> <!-- .item -->
-
-						<div class="property-item">
-
-							<a href="property-single.html" class="img">
-								<img src="images/img_5.jpg.png" alt="Image" class="img-fluid">
-							</a>
-
-							<div class="property-content">
-								<p style="margin-bottom: 0;"> <i class="fa fa-map-marker fa-lg"></i> Puerto Montt, Lorem insup</p>
-								<span class="city d-block mb-3" style="font-weight: bold;font-size: 30px;">TERRAMAR</span>
-
-								<div class="" style="border-top: 2px solid gray;">
-									
-									<div class="row p-3 ">
-										<div class="col-5 hr-l">
-											<div class="row ">
-												<div class="col-12">Dormitorios</div>
-												<div class="col-12">3</div>
-
-											</div>
-												
-										</div>
-										<div class="col-3 hr-l">
-											<div class="row ">
-												<div class="col-12">UF</div>
-												<div class="col-12">3600</div>
-
-											</div>
-										</div>
-										<div class="col-4">
-											<div class="row">
-												<div class="col-12">M2</div>
-												<div class="col-12">77</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div> <!-- .item -->
-
-						<div class="property-item">
-
-							<a href="property-single.html" class="img">
-								<img src="images/img_1.jpg.png" alt="Image" class="img-fluid">
-							</a>
-
-							<div class="property-content">
-								<p style="margin-bottom: 0;"> <i class="fa fa-map-marker fa-lg"></i> Puerto Montt, Lorem insup</p>
-								<span class="city d-block mb-3" style="font-weight: bold;font-size: 30px;">TERRAMAR</span>
-
-								<div class="" style="border-top: 2px solid gray;">
-									
-									<div class="row p-3 ">
-										<div class="col-5 hr-l">
-											<div class="row ">
-												<div class="col-12">Dormitorios</div>
-												<div class="col-12">3</div>
-
-											</div>
-												
-										</div>
-										<div class="col-3 hr-l">
-											<div class="row ">
-												<div class="col-12">UF</div>
-												<div class="col-12">3600</div>
-
-											</div>
-										</div>
-										<div class="col-4">
-											<div class="row">
-												<div class="col-12">M2</div>
-												<div class="col-12">77</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div> <!-- .item -->
 
 					</div>
 
@@ -637,6 +285,16 @@
 						<span class="next" data-controls="next" aria-controls="property" tabindex="-1">Siguiente</span>
 					</div>
 
+				</div> -->
+				<section class="splide" aria-label="Splide Basic HTML Example">
+					<div class="splide__track">
+						<ul class="splide__list" id="container-prop-slide">
+
+						</ul>
+					</div>
+				</section>
+				<div id="pagination-col" class="row align-items-center py-5">
+			
 				</div>
 			</div>
 
@@ -752,7 +410,7 @@
     	</div>
     </div>
 
-
+	<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/tiny-slider.js"></script>
     <script src="js/aos.js"></script>
@@ -760,7 +418,8 @@
     <script src="js/counter.js"></script>
     <script src="js/custom.js"></script>
 
-
+	<script type="module" src="js/prop_Map.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script type="module" src="js/utils/pagination.js"></script>
   </body>
   </html>
