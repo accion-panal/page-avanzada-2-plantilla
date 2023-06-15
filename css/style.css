@@ -10308,3 +10308,16 @@ html {
 .text-transform:hover{
   display: block !important;
 }
+
+.text-transform-2{
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transform: translateY(2%);
+  transition: transform 8.8s ease-in;
+}
+
+.text-transform-2:hover{
+  display: block !important;
+}
