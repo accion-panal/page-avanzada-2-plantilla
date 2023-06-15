@@ -10277,13 +10277,6 @@ html {
 }
 
 
-
-
-
-.form-cont{
-
-}
-
 .publico{
   width: 40%;
 
@@ -10320,4 +10313,18 @@ html {
 
 .text-transform-2:hover{
   display: block !important;
+}
+
+/* MapBox Style */
+.mapboxgl-canvas-container {
+  width: 1920px;
+  height: 100vh !important;
+  border-radius: 15px;
+}
+
+#map {
+  width: 100% !important;
+  height: 45vh !important;
+  border-radius: 5px !important;
+
 }

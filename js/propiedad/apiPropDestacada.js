@@ -20,6 +20,7 @@ export default async function apiDestCall() {
                     <img src="images/img_1.jpg.png" alt="Image" class="img-fluid">
                 </a>
                 <div class="property-content">
+                    <p style="margin-bottom: 0;"> COD: ${data.id} </p>
                     <p style="margin-bottom: 0;"> <i class="fa fa-map-marker fa-lg"></i> ${data.address != null && data.address != undefined && data.address != "" ? data.address : "No registra dirección"}, ${data.commune != null & data.commune != undefined && data.commune != "" ? data.commune : "No registra comuna"}</p>
                     <a href="/property-single.html?${data.id}&statusId=${1}&companyId=${companyId}">
                         <span class="city d-block mb-3 text-transform" style="font-weight: bold;font-size: 30px;">${data.title}</span>
