@@ -23,6 +23,11 @@
 	<script src="https://kit.fontawesome.com/5694cf4c5b.js" crossorigin="anonymous"></script>
 	<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
 
+	<link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+
+	<link href="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css" rel="stylesheet">
+	<script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
+
 	<title>Panal 2</title>
 	</head>
 <body>
@@ -74,28 +79,27 @@
 			<div class="row align-items-center p-3"  style="margin-left: 5%;margin-right: 5%;">
 				<div class="col-lg-8  ">
 					<div class="row ">
-						<div class="col-12 bord-venta m-lg-4">
-
-							<h1 class="heading " style="font-weight: bold; color: #4D4D4D;">Terramar, Lorem insup</h1>
-							<p>REF:123456</p>
+						<div class="col-12 bord-venta m-lg-4" id="main-info-prop">
+							<h1 class="heading " style="font-weight: bold; color: #4D4D4D;">Buscando propiedad...</h1>
+							<!-- <p>REF:123456</p>
 							<p>
 								<i class="fa fa-map-marker "  aria-hidden="true"></i>
 								PUERTO MONTT #2345, LOREM INSUM DOLOR SIT AMET
-							</p>
+							</p> -->
 						</div>
 					</div>
 
 				</div>
 				<div class="col-lg-4  p-1">
-					<div class="row">
+					<div class="row" id="price-info-prop">
 						<div class="col-12" style="display: flex;justify-content: right;">
 							<b>
-								<h2 style="font-weight: bold; color: #4D4D4D;">Venta</h2>
-								<h1 class="heading " style="font-weight: bold; color: #4D4D4D;">UF 3.600</h1>
+								<!-- <h2 style="font-weight: bold; color: #4D4D4D;">Venta</h2> -->
+								<h1 class="heading " style="font-weight: bold; color: #4D4D4D;">UF 0</h1>
 							</b>
 						</div>
 						<div class="col-12" style="display: flex;justify-content: right;">
-							<h5 class="heading "> CLP   $123.200.000</h5>
+							<h5 class="heading "> CLP   $0</h5>
 						</div>
 					</div>
 
@@ -108,13 +112,20 @@
 					<div class="row " style="overflow:hidden ;" >
 
 						<div class="hero ">
-			
-							<div class="hero-slide">
+							<!-- <div class="hero-slide">
 								<div class="img overlay" style="background-image: url('images/hero_bg_3.jpg')"></div>
 								<div class="img overlay" style="background-image: url('images/hero_bg_2.jpg')"></div>
 								<div class="img overlay" style="background-image: url('images/hero_bg_1.jpg')"></div>
-							</div>
-					
+							</div> -->
+							<section class="splide" aria-label="Splide Basic HTML Example">
+								<div class="splide__track">
+									<ul class="splide__list" id="carrucel-img">
+										<li class="splide__slide">Slide 01</li>
+										<li class="splide__slide">Slide 02</li>
+										<li class="splide__slide">Slide 03</li>
+									</ul>
+								</div>
+							</section>
 						</div>
 			
 			
@@ -156,10 +167,10 @@
 					</div>
 
 					<div class="row">
-						<div class="col-12 col-xl-8 ps-5" ><!-- style="padding-left: 70px;" -->
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi laudantium reprehenderit aspernatur.  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla magnam, modi aperiam temporibus eius architecto? Repudiandae earum quis non quod neque vel odio minus cumque, unde ut! Iste, beatae nemo.Vitae neque, ullam dolore possimus exercitationem corrupti corporis beatae, enim illo voluptas expedita rem porro totam fugit perferendis.</p>
+						<div class="col-12 col-xl-8 ps-5" id="description-info-prop" ><!-- style="padding-left: 70px;" -->
+							<p>Buscando propiedad...</p>
 							<h5>Caracteristicas generales</h5>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam dignissimos laborum mollitia cupiditate sunt accusantium natus doloremque repudiandae debitis ex sit tempore est Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, nesciunt numquam sequi perferendis dolores atque, error odio autem quia, voluptatum placeat quo accusamus! Corrupti consequatur, voluptatum molestiae qui eos voluptate. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi maiores sit nobis accusamus enim dolores ex. Ab libero delectus architecto. Magnam aut nemo assumenda laborum. Dignissimos veritatis optio ea at! quidem quo aut, quod corrupti ut nisi.</p>
+							<p>Buscando propiedad...</p>
 						</div>
 						<div class="col-12 col-xl-4">
 							<div class="row  " style="height: 100%;">
@@ -168,8 +179,8 @@
 										<div class="col-6 text-end">
 											<i class="fa fa-bed  "  aria-hidden="true"></i>
 										</div>
-										<div class="col-6 text-start">
-											05
+										<div class="col-6 text-start" id="bedrooms-prop">
+											00
 										</div>
 									</div>
 								</div>
@@ -178,8 +189,8 @@
 										<div class="col-6 text-end">
 											<i class="fa fa-bath  "  aria-hidden="true"></i>
 										</div>
-										<div class="col-6">
-											02
+										<div class="col-6" id="bathrooms-prop">
+											00
 										</div>
 									</div>
 								</div>
@@ -188,8 +199,8 @@
 										<div class="col-6 text-end">
 											<i class="fa fa-car  "  aria-hidden="true"></i>
 										</div>
-										<div class="col-6">
-											01
+										<div class="col-6" id="ParkingLots-prop">
+											00
 										</div>
 									</div>
 								</div>
@@ -198,8 +209,8 @@
 										<div class="col-6 text-end">
 											<i class="fa fa-ruler  "  aria-hidden="true"></i>
 										</div>
-										<div class="col-6">
-											55
+										<div class="col-6" id="surface-m2-prop">
+											00
 										</div>
 									</div>
 								</div>
@@ -239,15 +250,9 @@
 				<hr width="90%" size="5"  ></hr>
 			</div>
 		</div>
-
-
-
-			<iframe class="mapgoogle2" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.5958879815885!2d-70.56693998897713!3d-33.40770567329557!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cfc2ce4e1739%3A0x8f2bfdc565cf902f!2sAv.%20Apoquindo%206410%2C%207550000%20Las%20Condes%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1sen!2scl!4v1668719016513!5m2!1sen!2scl" 
-			style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-
-
-
+		<!-- <iframe class="mapgoogle2" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.5958879815885!2d-70.56693998897713!3d-33.40770567329557!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cfc2ce4e1739%3A0x8f2bfdc565cf902f!2sAv.%20Apoquindo%206410%2C%207550000%20Las%20Condes%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1sen!2scl!4v1668719016513!5m2!1sen!2scl" 
+		style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+		<div id="map"></div> 
 	</div>
 </div>
 
@@ -262,13 +267,13 @@
 					<div class="col-12 col-md-12   ">
 
 						<div class="row">
-							<div class="col-12 col-sm-6 ">
+							<div id="realtorImage" class="col-12 col-sm-6 ">
 								<div class="img text-center">
 									<img src="images/person_4-min.jpg" alt="Image" class="img-fluid" style="width: 80%; max-width: 300px; border-radius: 50%; border: #000 1px solid;">
 								</div>
 							</div>
-							<div class="col-12 col-sm-6" style="padding-top: 8%;">
-								<p style="font-size: 35px;"><b>Nancy Deverenux</b></p>
+							<div id="realtorName" class="col-12 col-sm-6" style="padding-top: 8%;">
+								<p style="font-size: 35px;"><b>Buscando...</b></p>
 							</div>
 						</div>
 
@@ -281,16 +286,16 @@
 							</div>
 
 							<div class="col-12">
-								<p style="font-size: 20px ;font-weight: bold;">
+								<p id="realtorEmail" style="font-size: 20px ;font-weight: bold;">
 									<i class="fa fa-envelope-open "aria-hidden="true"></i>
-									nancydeverenux@gmail.com
+									Buscando...
 								</p>
 							</div>
 
 							<div class="col-12">
-								<p style="font-size: 20px; font-weight: bold;">
+								<p id="realtorPhone" style="font-size: 20px; font-weight: bold;">
 									<i class="fa fa-whatsapp" aria-hidden="true"></i>
-									+56 9 5468 8585 
+									Buscando...
 								</p>
 							</div>
 	
@@ -455,5 +460,7 @@
 
 
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+	<script type="module" src="js/prop_detalle.js"></script>
   </body>
   </html>
