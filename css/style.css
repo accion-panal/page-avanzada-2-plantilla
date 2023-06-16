@@ -9454,7 +9454,7 @@ textarea {
 .hero {
   position: relative;
 
-  background-image: url(/images/hero_bg_1.jpg);
+  background-color: #001d43;
 
 }
   .hero.overlay {

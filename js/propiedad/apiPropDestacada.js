@@ -65,11 +65,15 @@ export default async function apiDestCall() {
     splide.mount();
 }
 
-document.addEventListener("DOMContentLoaded", function () {
+/* document.addEventListener("DOMContentLoaded", function() {
+    apiDestCall();
+}); */
+
+/* document.addEventListener("DOMContentLoaded", function () {
 	let splide = new Splide(".splide");
 	// let splideList = new Splide(".splide");
 	// splideList.mount();
 	splide.mount();
 });
 
-apiDestCall()
+apiDestCall() */
