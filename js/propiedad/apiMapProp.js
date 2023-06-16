@@ -109,12 +109,18 @@ export default async function apiCallMap() {
         });
     })
 
+    //todo: Modificar url de image
+    data = data.map(item => {
+        // Reemplazar "\\" por "//" en la propiedad "image"
+        item.image = item.image.replace(/\\/g, "//");
+        return item;
+    });
 
     document.getElementById('container-prop-slide').innerHTML = data.map(data => `
         <li class="splide__slide">
             <div class="property-item" style="margin:0 10px">
                 <a href="/property-single.html?${data.id}&statusId=${1}&companyId=${companyId}" class="img">
-                    <img src="images/img_1.jpg.png" alt="Image" class="img-fluid">
+                    <img src=${data.image} alt="Image" class="img-fluid">
                 </a>
                 <div class="property-content">
                     <p style="margin-bottom: 0;"> COD: ${data.id} </p>

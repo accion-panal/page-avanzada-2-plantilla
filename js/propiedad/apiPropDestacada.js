@@ -9,6 +9,13 @@ export default async function apiDestCall() {
     let {data} = await getProperties(1, 10, CodigoUsuarioMaestro, 1, companyId, realtorId);
     let filtrado = data.filter(data => data.highlighted != null && data.highlighted  != false );
 
+    //todo: Modificar url de image
+    filtrado = filtrado.map(item => {
+        // Reemplazar "\\" por "//" en la propiedad "image"
+        item.image = item.image.replace(/\\/g, "//");
+        return item;
+    });
+
     const response = await ExchangeRateServices.getExchangeRateUF();
     const ufValue = response?.UFs[0]?.Valor
     const ufValueAsNumber = parseFloat(ufValue.replace(',', '.'));
@@ -17,7 +24,7 @@ export default async function apiDestCall() {
         <li class="splide__slide">
             <div class="property-item" style="margin:0 10px">
                 <a href="/property-single.html?${data.id}&statusId=${1}&companyId=${companyId}" class="img">
-                    <img src="images/img_1.jpg.png" alt="Image" class="img-fluid">
+                    <img src=${data.image} alt="Image" class="img-fluid">
                 </a>
                 <div class="property-content">
                     <p style="margin-bottom: 0;"> COD: ${data.id} </p>
