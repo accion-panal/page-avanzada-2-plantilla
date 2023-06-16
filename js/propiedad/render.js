@@ -39,6 +39,13 @@ export default async function renderCall() {
     let data = response.data;
     console.log('data in render.js',data)
 
+    //todo: Modificar url de image
+    data = data.map(item => {
+        // Reemplazar "\\" por "//" en la propiedad "image"
+        item.image = item.image.replace(/\\/g, "//");
+        return item;
+    });
+
     //* Cositas para el uf
     const response2 = await ExchangeRateServices.getExchangeRateUF();
     const ufValue = response2?.UFs[0]?.Valor;
@@ -87,7 +94,7 @@ export default async function renderCall() {
                 <div class="col-xs-12 col-md-6 col-lg-4 carta-grilla">
                     <div class="property-item text-center">
                         <a href="/property-single.html?${data.id}&statusId=${1}&companyId=${companyId}" class="img">
-                            <img src="images/img_1.jpg.png" alt="Image" class="img-fluid">
+                            <img src=${data.image} alt="Image" class="img-fluid">
                         </a>
                         <div class="property-content border">
                             <p style="margin-bottom: 0;"> <i class="fa fa-map-marker fa-lg"></i> ${data.address != null && data.address != undefined && data.address != "" ? data.address : "No registra dirección"},${data.commune != null & data.commune != undefined && data.commune != "" ? data.commune : "No registra comuna"}</p>
