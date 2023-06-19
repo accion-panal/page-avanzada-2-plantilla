@@ -94,7 +94,7 @@ export default async function renderCall() {
                 <div class="col-xs-12 col-md-6 col-lg-4 carta-grilla">
                     <div class="property-item text-center">
                         <a href="/property-single.html?${data.id}&statusId=${1}&companyId=${companyId}" class="img">
-                            <img src=${data.image} alt="Image" class="img-fluid">
+                            ${data.image.endsWith('.jpg') ? `<img src=${data.image} alt="Image" class="img-fluid">`:`<img src='https://res.cloudinary.com/dbrhjc4o5/image/upload/v1681933697/unne-media/errors/not-found-img_pp5xj7.jpg' alt="Image" class="img-fluid">`}
                         </a>
                         <div class="property-content border">
                             <p style="margin-bottom: 0;"> <i class="fa fa-map-marker fa-lg"></i> ${data.address != null && data.address != undefined && data.address != "" ? data.address : "No registra dirección"},${data.commune != null & data.commune != undefined && data.commune != "" ? data.commune : "No registra comuna"}</p>
