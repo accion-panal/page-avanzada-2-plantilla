@@ -89,34 +89,34 @@
 				<div class="row">
 					<div class="col-lg-12  ">
 
-						<form action="#" class="narrow-w form-search d-flex align-items-stretch mb-3 formcontact" data-aos="fade-up" data-aos-delay="200">
+						<form method="POST" id="form-contact" name="FormSubmit" class="narrow-w form-search d-flex align-items-stretch mb-3 formcontact" data-aos="fade-up" data-aos-delay="200">
 							
 							<div class="row p-5  pt-5 ">
 								<div class="col-lg-12 p-1 ">
-									<input type="text" class="form-control  btn-border" style="padding-left: 30px;" placeholder="Nombre ">						
+									<input id="nameContact" type="text" class="form-control  btn-border" style="padding-left: 30px;" placeholder="Nombre ">						
 								</div>
 								<div class="col-lg-12 p-1 ">
-									<input type="email" class="form-control  btn-border" style="padding-left: 30px;" placeholder="Mail">
+									<input id="emailContact" type="email" class="form-control  btn-border" style="padding-left: 30px;" placeholder="Mail">
 								</div>
 								<div class="col-lg-12 p-1 ">
-									<input type="text" class="form-control  btn-border" style="padding-left: 30px;" placeholder="Telefono ">						
+									<input id="phoneContact" type="text" class="form-control  btn-border" style="padding-left: 30px;" placeholder="Telefono ">						
 								</div>
 								<div class="col-lg-12 p-1 ">
-									<input type="text" class="form-control  btn-border" style="padding-left: 30px;" placeholder="Asunto">
+									<input id="subjectContact" type="text" class="form-control  btn-border" style="padding-left: 30px;" placeholder="Asunto">
 								</div>
 								<div class="col-lg-12 p-1 ">
-									<textarea name="" id="" cols="30" rows="7" class="form-control  btn-border" style="padding-left: 30px;" placeholder="Mensaje"></textarea>
+									<textarea id="messageContact" cols="30" rows="7" class="form-control  btn-border" style="padding-left: 30px;" placeholder="Mensaje"></textarea>
 								</div>
 
 								<div class="col-lg-12 p-1 text-center">
 									<button type="submit" class="btn btn-primary " style="width: 100%;padding-top: 7px;padding-bottom: 7px;margin-top: 20px;">Enviar</button>
 								</div>
-		
+								<div class="alert visually-hidden" role="alert" id="respuesta"></div>
 							</div>
 	
 	
-	
-	
+							
+							
 						</form>
 					</div>
 				</div>
@@ -262,5 +262,7 @@
 	<script type="module" src="js/Data/ContactInfo.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 	<script type="module" src="js/prop_mapLocation.js"></script>
+	<script type="module" src="js/utils/PostContact.js"></script>
+    <script type="module" src="js/utils/SendEmailContact.js"></script>
   </body>
   </html>
