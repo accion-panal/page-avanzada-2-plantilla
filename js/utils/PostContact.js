@@ -6,6 +6,7 @@ let userCompanyId = PropertyData.companyId;
 
 form.addEventListener('submit', function (e) {
     e.preventDefault();
+    let alertElement = document.querySelector('.alert');
 
     let firstName = document.getElementById('nameContact');
     let email = document.getElementById('emailContact');
@@ -14,6 +15,14 @@ form.addEventListener('submit', function (e) {
     let message = document.getElementById('messageContact');
 
     /* console.log('company id ',userCompanyId) */
+
+    if(firstName.value==='' || email.value==='' || phone.value==='' || message.value==='' || subject.value===''){
+        /* console.log('campos vacios') */
+        alertElement.textContent = 'Todos los campos son obligatorios';
+        alertElement.classList.add('alert-danger');
+        alertElement.classList.remove('visually-hidden');
+        return;
+    }
 
     let myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
