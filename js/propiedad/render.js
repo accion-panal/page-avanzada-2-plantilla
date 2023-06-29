@@ -1,6 +1,6 @@
 import { getProperties } from "../services/PropertiesServices.js";
 import ExchangeRateServices from "../services/ExchangeRateServices.js";
-import { parseToCLPCurrency, clpToUf } from "../utils/getExchangeRate.js";
+import { parseToCLPCurrency, clpToUf,validationUF } from "../utils/getExchangeRate.js";
 import { PropertyData, limitDataApi } from "../Data/userId.js";
 import paginationCall from "../utils/pagination.js";
 import apiCallMap from "../propiedad/apiMapProp.js";
@@ -112,7 +112,7 @@ export default async function renderCall() {
                                     <div class="col-3 hr-l">
                                         <div class="row ">
                                             <div class="col-12">UF</div>
-                                            <div class="col-12">${clpToUf(data.price, ufValueAsNumber)}</div>
+                                            <div class="col-12">${validationUF(data.currency.isoCode) ? data.price : clpToUf(data.price, ufValueAsNumber)}</div>
                                         </div>
                                     </div>
                                     <div class="col-4">
