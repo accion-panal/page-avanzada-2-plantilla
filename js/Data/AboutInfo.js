@@ -1,6 +1,7 @@
 import { AboutInformation } from "./userId.js";
 
 const AboutInfo = () => {
+    localStorage.removeItem('globalQuery');
     /* LLENAR INFORMACION DE DESCRIPCION */
     let desc = document.getElementById('description-about');
     if (desc !== null) {

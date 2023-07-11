@@ -33,9 +33,6 @@ if (storedGlobalQuery) {
     if(globalQuery.bedrooms != null){
         document.getElementById("bedrooms").value = globalQuery.bedrooms;
     }
-    if(globalQuery.commune != null){
-       /*  document.getElementById("communeTextId").value = globalQuery.commune; */
-    }
 
     if(globalQuery.covered_parking_lots != null){
         document.getElementById("covered_parking_lots").value = globalQuery.covered_parking_lots;
@@ -59,12 +56,32 @@ if (storedGlobalQuery) {
         if(globalQuery.typePrice == 'uf'){document.getElementById('inlineRadio1').checked = true}
         if(globalQuery.typePrice == 'clp'){document.getElementById('inlineRadio2').checked = true}
     }
+    //* Actualizar variable segun el globalQuery
     if(globalQuery.region != null){
-        /* document.getElementById("region").value = globalQuery.region; */
+        //globalQuery.region = 2
+        //select region = 2 Antofagasta
+        //buscar = Antofagasta
+        const regionData = data.regions.find(region => region.id == globalQuery.region);
+        region = `${regionData.name}`;
+        console.log(region)
+
     }
+    //* Actualizar variable segun el globalQuery
+    if(globalQuery.commune != null){
+        //globalQuery.commune = 5
+        //select commune = Calama
+        //buscar = Calama
+        let aux = await getCommune(globalQuery.region);
+        const communeData = aux.data.find(commune => commune.id == globalQuery.commune);
+        commune = `${communeData.name}`
+        console.log(commune)
+
+    }
+    //* Actualizar variable segun el globalQuery
     if(globalQuery.typeOfProperty != null){
-        document.getElementById("typeOfProperty").value = globalQuery.typeOfProperty;
+        typeOfProperty = globalQuery.typeOfProperty;
     }
+    
 } 
 
 
@@ -130,6 +147,14 @@ document.getElementById("max_price").addEventListener( "change", (element) => {
 })
   
 
+function disabledButton(){
+    let buttonSearch = document.getElementById('buscar2');
+    buttonSearch.disabled = true;
+}
+function activeButton(){
+    let buttonSearch = document.getElementById('buscar2');
+    buttonSearch.disabled = false;
+}
 
 //TODO: Al hacer click en buscar, Mostrara todos los valores guardados
 document.getElementById('buscar2')?.addEventListener('click', async() => {
@@ -137,6 +162,7 @@ document.getElementById('buscar2')?.addEventListener('click', async() => {
     console.log('FilterOnSearch')
     //* mostrar spinner loading
     document.getElementById("buscar2").innerHTML = `<div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div>`;
+    disabledButton();
 
     //todo: RESCATAR Y SEPARAR EL ID Y NAME DE REGION
     /* let idRegion = parseInt(region.match(/\d+/)[0]);
@@ -210,5 +236,6 @@ document.getElementById('buscar2')?.addEventListener('click', async() => {
 
     //* quitar spinner loading
     document.getElementById("buscar2").innerHTML = `Buscar`;
+    activeButton();
 
 });

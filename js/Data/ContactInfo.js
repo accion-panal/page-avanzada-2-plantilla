@@ -1,6 +1,7 @@
 import { ContactInformation } from "./userId.js";
 
 const ContactInfo = () => {
+    localStorage.removeItem('globalQuery');
     const { information, horario } = ContactInformation;
 
     let info = document.getElementById('contact-info');

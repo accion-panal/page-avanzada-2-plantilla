@@ -18,6 +18,7 @@ export default async function renderCall() {
         let maxPage =  Math.ceil(response.meta.totalItems / response.meta.limit);
         localStorage.setItem('LimitPages', JSON.stringify(maxPage));
         /* localStorage.setItem('countPage', JSON.stringify(1)); */
+        paginationCall();
     } 
     else {
         //* el segundo digito es el limit
