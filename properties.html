@@ -158,12 +158,13 @@
 						</div>
 
 						<div class="col-lg-6 text-center p-1">
-							<select class="form-select" style="border-radius: 15px;" aria-label="Default select example">
+							<!-- <select class="form-select" style="border-radius: 15px;" aria-label="Default select example">
 								<option selected>Superficie m2</option>
 								<option value="1">10 - 20</option>
 								<option value="2">20 - 30</option>
 								<option value="3">40 - 50</option>
-							</select>
+							</select> -->
+							<input type="number" class="form-input" style="border-radius: 15px;" min="0" pattern="^[0-9]+" name="Superficie_m2" id="Superficie_m2" placeholder="Superficie m2">
 						</div>
 						<!--Precio------------------------------------------->
 
@@ -233,14 +234,26 @@
 			<div class="col-lg-3 " style="padding-top: 10px ;padding-left: 0;" id="total-prop">
 				Buscando Propiedades...
 			</div>
-			<div class="col-lg-7  " style="padding-top: 10px ;padding-bottom: 7px;">
+			<div class="col-lg-3  " style="padding-top: 10px ;padding-bottom: 7px;">
 				<div class="row text-end" style="padding-top: 10px; padding-right: 10px; padding-left: 10px;">
-					<div class="col col-lg-7 text-end">Orden por:</div>
-					<div class="col-8 col-lg-5 text-end">
-						<select id="FilterPrice" class="form-select text-end" aria-label="Default select example" style="margin-left: 50px;width: 100%!important;">
+					<div class="col col-lg-5 text-end">Orden por:</div>
+					<div class="col-8 col-lg-7 text-end">
+						<select id="FilterPrice" class="form-select text-center" aria-label="Default select example" style="width: 100%!important;">
 							<option disabled selected>Seleccione una opción</option>
 							<option value="MenorMayor">Precio menor a mayor</option>
 							<option value="MayorMenor">Precio mayor a menor</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 " style="padding-top: 10px ;padding-left: 0;" id="total-prop">
+				<div class="row text-end" style="padding-top: 10px; padding-right: 10px; padding-left: 10px;">
+					<div class="col col-lg-8 text-start">Cant. Propiedades:</div>
+					<div class="col-8 col-lg-4 text-center">
+						<select id="FilterLimit" class="form-select text-center" aria-label="Default select example" style="width: 100%!important;">
+							<option value="3">3</option>
+							<option value="6" selected>6</option>
+							<option value="9">9</option>
 						</select>
 					</div>
 				</div>
@@ -252,8 +265,9 @@
 				</div>
 			</div>
 		</div>
-		<div class="row " id="container-propiedad">
+		<div class="row " id="container-propiedad" style="justify-content: center;">
 			<!-- styles cards in js/propiedad/render.js  -->
+			<div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div>
 		</div>
 		<!-- <div class="row">
 			<div class="col-6">

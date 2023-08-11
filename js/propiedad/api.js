@@ -27,6 +27,7 @@ export default async function apiCall() {
       let parkingLots = (response.covered_parking_lots !== undefined && response.covered_parking_lots !== null && response.covered_parking_lots !== '') ? '&covered_parking_lots=' + response.covered_parking_lots : '';
       let minPrice = (response.min_price !== undefined && response.min_price !== null && response.min_price !== '') ? '&min_price=' + response.min_price : '';
       let maxPrice = (response.max_price !== undefined && response.max_price !== null && response.max_price !== '') ? '&max_price=' + response.max_price : '';
+      let surface_m2 = (response.surface_m2 !== undefined && response.surface_m2 !== null && response.surface_m2 !== '') ? '&surface_m2=' + response.surface_m2 : '';
 
 
       let regionData = '';
@@ -45,7 +46,7 @@ export default async function apiCall() {
       
 
 
-      let urlFilters = operation+typeOfProperty+bedrooms+bathrooms+parkingLots+minPrice+maxPrice+nameRegion+commune;
+      let urlFilters = operation+typeOfProperty+bedrooms+bathrooms+parkingLots+minPrice+maxPrice+nameRegion+commune+surface_m2;
       console.log('urlFilters: ',urlFilters)
       let response2 = await getPropertiesForCustomUrl(1,limitDataApi.limit,CodigoUsuarioMaestro,1,companyId,realtorId,urlFilters);
       localStorage.setItem('globalResponse', JSON.stringify(response2));
