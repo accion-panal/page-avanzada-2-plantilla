@@ -235,17 +235,29 @@
 
 		
 		<div class="row align-items-center py-1 text-start  " style="padding: 0 3rem 2rem 3rem ;">
-			<div class="col-lg-4 " style="padding-top: 10px ;padding-left: 0;" id="total-prop">
+			<div class="col-lg-3 " style="padding-top: 10px ;padding-left: 0;" id="total-prop">
 				Buscando Propiedades...
 			</div>
-			<div class="col-lg-6  " style="padding-top: 10px ;padding-bottom: 7px;">
-				<div class="row text-end" style="padding-top: 10px; padding-right: 10px; padding-left: 0px;">
-					<div class="col-7 text-end">Orden por:</div>
-					<div class="col-5 text-end">
-						<select id="FilterPrice" class="form-select text-end" aria-label="Default select example" style="margin-left: 50px;width: 100%!important;">
+			<div class="col-lg-3  " style="padding-top: 10px ;padding-bottom: 7px;">
+				<div class="row text-end" style="padding-top: 10px; padding-right: 10px; padding-left: 10px;">
+					<div class="col col-lg-5 text-end">Orden por:</div>
+					<div class="col-8 col-lg-7 text-end">
+						<select id="FilterPrice" class="form-select text-center" aria-label="Default select example" style="width: 100%!important;">
 							<option disabled selected>Seleccione una opción</option>
 							<option value="MenorMayor">Precio menor a mayor</option>
 							<option value="MayorMenor">Precio mayor a menor</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 " style="padding-top: 10px ;padding-left: 0;" id="total-prop">
+				<div class="row text-end" style="padding-top: 10px; padding-right: 10px; padding-left: 10px;">
+					<div class="col col-lg-8 text-start">Cant. Propiedades:</div>
+					<div class="col-8 col-lg-4 text-center">
+						<select id="FilterLimit" class="form-select text-center" aria-label="Default select example" style="width: 100%!important;">
+							<option value="3">3</option>
+							<option value="6" selected>6</option>
+							<option value="9">9</option>
 						</select>
 					</div>
 				</div>

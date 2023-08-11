@@ -19,7 +19,8 @@ let query = {
   bathrooms: null,
   bedrooms: null,
   covered_parking_lots: null,
-  typePrice: null
+  typePrice: null,
+  surface_m2:null
 }
 
 let aux = new URLSearchParams(window.location.search);
@@ -64,7 +65,6 @@ document.getElementById("commune").addEventListener("change", (element) => {
 document.getElementById("bedrooms").addEventListener("change", (element) => {
   query.bedrooms = element.target.value;
   console.log('bedrooms: ',element.target.value)
-
 })
 
 //! Estacionamientos
@@ -99,6 +99,19 @@ document.getElementById("min_price").addEventListener("change", (element) => {
 document.getElementById("max_price").addEventListener("change", (element) => {
   query.max_price = element.target.value;
   console.log('max_price: ',element.target.value)
+})
+
+//! Superficie_m2
+document.getElementById("Superficie_m2").addEventListener("change", (element) => {
+  if(element.target.value>0){
+    console.log('Superficie_m2: ',element.target.value)
+    query.surface_m2 = element.target.value;
+  }
+  else{
+    document.getElementById("Superficie_m2").value = '';
+    query.surface_m2 = null;
+  }
+  
 })
 
 
