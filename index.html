@@ -119,13 +119,13 @@
 							</select>
 						</div>
 						<div class="col-lg-6 text-center p-1">
-							<select  id="commune" class="form-select" style="border-radius: 15px;" aria-label="Default select example">
+							<select  id="communeTextId" class="form-select" style="border-radius: 15px;" aria-label="Default select example">
 								<option selected>Comuna</option>
 
 							</select>
 						</div>
 						<div class="col-lg-6 text-center p-1">
-							<select id="region" class="form-select" style="border-radius: 15px;" aria-label="Default select example">
+							<select id="regionTextId" class="form-select" style="border-radius: 15px;" aria-label="Default select example">
 								<option selected>Región</option>
 							</select>
 						</div>
@@ -152,7 +152,7 @@
 
 						<div class="col-lg-6 text-center p-1">
 							<select id="covered_parking_lots" class="form-select" style="border-radius: 15px;" aria-label="Default select example">
-								<option selected>Estacionamientos</option>
+								<option value="" selected>Estacionamientos</option>
 								<option value="1">1</option>
 								<option value="2">2</option>
 								<option value="3">3</option>
@@ -532,15 +532,25 @@
     <script src="js/counter.js"></script>
     <script src="js/custom.js"></script>
 
-	<script type="module" src="js/prop_destacada.js"></script>
-	<script type="module" src="js/Data/AboutInfo.js"></script>
-	<script type="module" src="js/Data/ContactInfo.js"></script>
-	<script type="module" src="js/utils/filterIndex.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-	<script type="module" src="js/prop_mapLocation.js"></script>
-	<script type="module" src="js/utils/counts-cant-prop.js"></script>
-	<script type="module" src="js/utils/PostContact.js"></script>
-    <script type="module" src="js/utils/SendEmailContact.js"></script>
+		<!-- Axios -->
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+		<!-- Prop Destacada -->
+		<script type="module" src="js/pages/prop_destacada.js"></script>
+
+		<!-- Filtros -->
+		<script type="module" src="js/utils/filterIndex.js"></script>
     <script type="module" src="js/utils/getSelects.js"></script>
+
+		<!-- Data -->
+		<script type="module" src="js/Data/AboutInfo.js"></script>
+		<script type="module" src="js/Data/ContactInfo.js"></script>
+		<script type="module" src="js/pages/prop_mapLocation.js"></script>
+
+		<!-- Forms -->
+		<script type="module" src="js/Forms/PostContact.js"></script>
+    <script type="module" src="js/Forms/SendEmailContact.js"></script>
+
+		<script type="module" src="js/utils/counts-cant-prop.js"></script>
   </body>
   </html>

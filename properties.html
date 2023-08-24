@@ -252,22 +252,59 @@
 					<div class="col-8 col-lg-4 text-center">
 						<select id="FilterLimit" class="form-select text-center" aria-label="Default select example" style="width: 100%!important;">
 							<option value="3">3</option>
-							<option value="6" selected>6</option>
+							<option value="6">6</option>
 							<option value="9">9</option>
 						</select>
 					</div>
 				</div>
 			</div>
 			<div class="col-lg-2 grilla-custom" style="padding-top: 10px ;">
-				<div class="custom-pagination">
+				<!-- <div class="custom-pagination">
 					<a href="properties.html"class="active"><img src="images/grilla-icono.svg" alt=""></a>
 					<a href="properties-map.html" ><img src="images/mapa-icono.svg" alt=""></a>
-				</div>
+				</div> -->
+				<ul class="nav nav-pills custom-pagination" id="pills-tab" role="tablist" style="justify-content: end; gap: 5px;">
+					<li class="nav-item" role="presentation">
+						<a class=" active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true"><img src="images/grilla-icono.svg" alt=""></a>
+					</li>
+					<li class="nav-item" role="presentation">
+						<a class="" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false"><img src="images/mapa-icono.svg" alt=""></a>
+					</li>
+				</ul>
 			</div>
 		</div>
-		<div class="row " id="container-propiedad" style="justify-content: center;">
+		
 			<!-- styles cards in js/propiedad/render.js  -->
-			<div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div>
+
+
+		<div class="tab-content" id="pills-tabContent">
+			<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+				<div class="row " id="container-propiedad" style="justify-content: center;">
+					Buscando
+				</div>
+
+			</div>
+
+			<div class="tab-pane fade initialMap active" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+
+				<div class="row " id="div-map-section">
+					<div id="map"></div> 
+				</div>
+
+				<div class="row " style="padding-left: 5%;padding-right: 5%; padding-top: 30px;">
+					<div class="col-12">
+						<section class="splide" aria-label="Splide Basic HTML Example">
+							<div class="splide__track">
+								<ul class="splide__list" id="container-prop-slide">
+		
+								</ul>
+							</div>
+						</section>
+					</div>
+		
+				</div>
+			</div>
 		</div>
 		<!-- <div class="row">
 			<div class="col-6">
@@ -413,12 +450,18 @@
     <script src="js/navbar.js"></script>
     <script src="js/counter.js"></script>
     <script src="js/custom.js"></script>
+    <script src="js/tabs.js"></script>
 
-	<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-	<script type="module" src="js/utils/getSelects.js"></script>
-	<script type="module" src="js/utils/filterOnSearch.js"></script>
-	<script type="module" src="js/utils/pagination.js"></script>
-	<script type="module" src="js/index.js"></script>
+		<!-- Splide -->
+		<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+		<!-- Axios -->
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<!-- Page -->
+		<script type="module" src="js/pages/index.js"></script>
+		<!-- Utils -->
+		<script type="module" src="js/utils/getSelects.js"></script>
+		<script type="module" src="js/utils/filterOnSearch.js"></script>
+		<script type="module" src="js/utils/limitProp.js"></script>
+
   </body>
   </html>
