@@ -10394,3 +10394,8 @@ html {
 .display-hidden{
   display: none !important;
 }
+
+.initialMap {
+  height: 0 !important;
+  overflow: hidden;
+}

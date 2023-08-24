@@ -133,7 +133,7 @@
 								<input id="phonePublic" type="text" class="form-control btn-border" style="border-radius: 15px;height: 40px;" placeholder="Teléfono">	
 							</div>
 							<div class="col-lg-12 text-center p-1">
-								<select id="regionText" class="form-select btn-border" style="border-radius: 15px;" aria-label="Default select example">
+								<select id="region" class="form-select btn-border" style="border-radius: 15px;" aria-label="Default select example">
 									<option selected>Regíon</option>
 									<option value="1">RM</option>
 									<option value="2">5ta</option>
@@ -269,10 +269,18 @@
     <script src="js/counter.js"></script>
     <script src="js/custom.js"></script>
 
-	<script type="module" src="js/Data/ServicesInfo.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-	<script type="module" src="js/utils/getSelects.js"></script>
-	<script type="module" src="js/utils/SendEmailServices.js"></script>
-	<script type="module" src="js/utils/PostContactServices.js"></script>
+		<!-- Axios -->
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+		<!-- Utils -->
+		<script type="module" src="js/utils/getSelects.js"></script>
+
+		<!-- Forms -->
+		<script type="module" src="js/Forms/SendEmailServices.js"></script>
+		<script type="module" src="js/Forms/PostContactServices.js"></script>
+		
+		<!-- Data -->
+		<script type="module" src="js/Data/ServicesInfo.js"></script>
+
   </body>
   </html>
