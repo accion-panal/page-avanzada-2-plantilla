@@ -13,7 +13,9 @@ let defaultLimit = limitDataApi.limit;
 function changeUrlImage(data) {
   return data.map(item => {
     // Reemplazar "\\" por "//" en la propiedad "image"
-    item.image = item.image.replace(/\\/g, "//");
+    if(item.image){
+      item.image = item.image.replace(/\\/g, "//");
+    }
     return item;
   });
 }
@@ -53,6 +55,17 @@ function resetNumberPage() {
   return 1;
 }
 
+function validateImage(image){
+  if(image){
+    if(image.endsWith('.jpg') || image.endsWith('.png') || image.endsWith('.jpeg')){
+      return `<img src=${image} alt="Image" class="img-fluid">`;
+    }
+    return `<img src='https://res.cloudinary.com/dbrhjc4o5/image/upload/v1681933697/unne-media/errors/not-found-img_pp5xj7.jpg' alt="Image" class="img-fluid">`;
+  }
+  else{
+    return `<img src='https://res.cloudinary.com/dbrhjc4o5/image/upload/v1681933697/unne-media/errors/not-found-img_pp5xj7.jpg' alt="Image" class="img-fluid">`;
+  }
+}
 
 //Todo: Set loading
 function setContainerLoading(isLoading) {
@@ -187,12 +200,12 @@ export default async function renderCall(QueryParams = undefined, NumberPaginati
       document.getElementById("container-propiedad").innerHTML = data.map(data => `
         <div class="col-xs-12 col-md-6 col-lg-4 carta-grilla">
             <div class="property-item text-center">
-                <a href="/property-single.html?${data.id}&statusId=${1}&companyId=${companyId}" class="img">
-                    ${data.image.endsWith('.jpg') ? `<img src=${data.image} alt="Image" class="img-fluid">` : `<img src='https://res.cloudinary.com/dbrhjc4o5/image/upload/v1681933697/unne-media/errors/not-found-img_pp5xj7.jpg' alt="Image" class="img-fluid">`}
+                <a href="/property-single.html?${data.id}&statusId=${1}&companyId=${companyId}" class="img" target="_blank">
+                    ${validateImage(data.image)}
                 </a>
                 <div class="property-content border">
                     <p style="margin-bottom: 0;"> <i class="fa fa-map-marker fa-lg"></i> ${data.address != null && data.address != undefined && data.address != "" ? data.address : "No registra dirección"},${data.commune != null & data.commune != undefined && data.commune != "" ? data.commune : "No registra comuna"}</p>
-                    <a href="/property-single.html?${data.id}&statusId=${1}&companyId=${companyId}">
+                    <a href="/property-single.html?${data.id}&statusId=${1}&companyId=${companyId}" target="_blank">
                         <span class="city d-block mb-3 text-transform-2" style="font-weight: bold;font-size: 30px;">${data.title}</span>
                     </a>
                     <div class="" style="border-top: 2px solid gray;">

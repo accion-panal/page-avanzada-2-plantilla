@@ -91,7 +91,7 @@ export default async function apiDetalleCall(id, statusId = 1, companyId) {
             </div>
         `;
         document.getElementById('realtorName').innerHTML = `
-            <p style="font-size: 35px;"><b>${realtorInfo.name} ${realtorInfo.lastName}</b></p>
+            <p style="font-size: 35px;"><b>${realtorInfo.name} ${realtorInfo.lastName != null ? realtorInfo.lastName : ''}</b></p>
         `;
         document.getElementById('realtorEmail').innerHTML = `
             <i class="fa fa-envelope-open "aria-hidden="true"></i>

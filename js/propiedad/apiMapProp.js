@@ -27,6 +27,19 @@ function limpiarMarcadores(dataMarket) {
 }
 
 
+function validateImage(image){
+    if(image){
+      if(image.endsWith('.jpg') || image.endsWith('.png') || image.endsWith('.jpeg')){
+        return `<img src=${image} alt="Image" class="img-fluid">`;
+      }
+      return `<img src='https://res.cloudinary.com/dbrhjc4o5/image/upload/v1681933697/unne-media/errors/not-found-img_pp5xj7.jpg' alt="Image" class="img-fluid">`;
+    }
+    else{
+      return `<img src='https://res.cloudinary.com/dbrhjc4o5/image/upload/v1681933697/unne-media/errors/not-found-img_pp5xj7.jpg' alt="Image" class="img-fluid">`;
+    }
+}
+
+
 export default async function apiCallMap() {
     const { CodigoUsuarioMaestro, companyId, realtorId } = PropertyData;
 
@@ -69,7 +82,7 @@ export default async function apiCallMap() {
                 const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(`
                 <span>${data.title}</span>
                 <br>
-                <a href="/detalle_propiedad.html?${data.id}&realtorId=${realtorId}&statusId=${1}&companyId=${companyId}" name="VerDetalle"  class="more d-flex align-items-center float-start">
+                <a href="/detalle_propiedad.html?${data.id}&realtorId=${realtorId}&statusId=${1}&companyId=${companyId}" target="_blank" name="VerDetalle"  class="more d-flex align-items-center float-start">
                 <span class="label" id="getProperty">Ver Detalle</span>
                 <span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
                 </a>`)
@@ -137,7 +150,9 @@ export default async function apiCallMap() {
     //todo: Modificar url de image
     data = data.map(item => {
         // Reemplazar "\\" por "//" en la propiedad "image"
-        item.image = item.image.replace(/\\/g, "//");
+        if(item.image){
+            item.image = item.image.replace(/\\/g, "//");
+        }
         return item;
     });
 
@@ -145,7 +160,7 @@ export default async function apiCallMap() {
         <li class="splide__slide">
             <div class="property-item" style="margin:0 10px">
                 <a href="/property-single.html?${data.id}&statusId=${1}&companyId=${companyId}" class="img">
-                    <img src=${data.image} alt="Image" class="img-fluid">
+                    ${validateImage(data.image)}
                 </a>
                 <div class="property-content">
                     <p style="margin-bottom: 0;"> COD: ${data.id} </p>

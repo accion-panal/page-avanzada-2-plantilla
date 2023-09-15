@@ -5,6 +5,11 @@ export default async function apiCallMapDetail(id, statusId, companyId) {
 
     let { data } = await getPropertiesForId(id, statusId, companyId);
 
+    let divMapContainer = document.getElementById('map');
+    if(data.LngLat == null){
+        divMapContainer.innerHTML = `No registra ubicacion exacta`;
+        return;
+    }
 
     const LngLat = data.LngLat.replace("{", "")
         .replace("}", "")
@@ -15,6 +20,7 @@ export default async function apiCallMapDetail(id, statusId, companyId) {
         .split(":");
 
     console.log(id)
+    console.log(LngLat)
 
     mapboxgl.accessToken = 'pk.eyJ1Ijoic2VyZ2lvdmVyYWhlcm5hbmRlemJpZGF0YSIsImEiOiJjbDMwZHc4cmswMDdqM2NydmIzYWF0cGl4In0.hsYQFPebleAB4j6mRckMzQ'
     const map = new mapboxgl.Map({
